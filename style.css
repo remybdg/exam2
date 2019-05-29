@@ -25,6 +25,7 @@
 body {
 	font-family: Poppins;
 	margin: 0;
+	overflow-x: hidden
 }
 
 a {
@@ -39,8 +40,10 @@ header {
 }
 
 #headerText {	
+	position: relative;
 	display: flex;
 	max-width: 1200px;
+	width: 100%;
     align-items: center;
 	justify-content: space-between;
 	padding: 1% 0;
@@ -53,10 +56,6 @@ header {
 
 }
 
-nav {
-	display: flex;
-	justify-content: flex-end;
-}
 #title {
 	display: flex;
 	flex-direction: column;
@@ -77,8 +76,16 @@ h2 {
 	margin: 0;	
 }
 
+
 nav>a {
-	padding: 0 20px;;
+	padding: 0 20px;
+	transition: 0.3s;
+}
+
+nav>a:hover {
+	color: white;
+	background-color: grey;
+
 }
 
 #banniere {
@@ -90,17 +97,26 @@ nav>a {
 
 }
 
-#bubbleLeft {
+.bubble {
 	position: absolute;
+	font-family: PoppinsBold;
+	color: 	#404040;	
+	font-size: calc(16px + (40 - 16) * ((100vw - 600px) / (1600 - 600)));	
+}
+
+#bubbleLeft {
 	top: 23%;
-	left: 39%;
+	left: 37%;
+
+}
+
+#bubbleLeft>P {
+	margin: 0;
 }
 
 #bubbleRight {
-	position: absolute;
-	top: 55%;
-	left: 46%;	
-	
+	top: 51%;
+	left: 43%;	
 }
 
 main {
@@ -114,9 +130,12 @@ main {
 	max-width: 1200px;	
 	display: flex;
     align-items: center;
-	justify-content: space-around;
+	justify-content: flex-start;
 	flex-wrap: wrap;
+	width: 100%
 }
+
+
 
 .competencesElt {
 	display: flex;
@@ -124,17 +143,20 @@ main {
 	width: 400px;
 	padding: 50px 0;
 	justify-content: center;
+	align-items: flex-start;
 }
 
 .competencesImg {
-	height: 200px;
-	width: 200px;
+	height: 150px;
+	width: 150px;
 }
 
 .compText {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 30px 20px;
+	font-size: 36px
 }
 
 .compText>p {
@@ -142,16 +164,133 @@ main {
 }
 
 h3 {
-	color: #383822;
+	color: 	#404040;
 	padding: 30px 0;	
+	font-size: 40px;
+	padding-left: 60px;
+}
+
+.hamburgerlayer {
+    width: 35px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+
+}
+
+#hamburger {
+	display: none;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#navMobile {
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: #00cccc;
+	z-index: 2;
+	position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 305px ;
+    width: 100%;
+	padding-left: 50px;
+	font-family: PoppinsBold;
 }
 
 
+@media screen and (max-width: 800px) {
+	
+		#mainSection  {
+			justify-content: space-around;
+		}
+		
+		h3 {
+			text-align: center;
+			padding-left: 0;
+		}
+
+		.competencesElt:nth-child(1) {
+			order: 1;
+
+		}
+		
+		.competencesElt:nth-child(2) {
+			order: 3
+
+		}	
+		
+		.competencesElt:nth-child(3) {
+			order: 4;
+
+		}	
+		
+		.competencesElt:nth-child(4) {
+			order: 2;
+
+		}	
+		
+		.competencesElt:nth-child(5) {
+			order: 5;
+
+		}
+	
+}
 
 
+@media screen and (max-width: 600px) {
+	
+		#hamburger {
+			display: flex;
+		}
+		
+		nav {
+			display: none;
+		}
+		
+		#headerText {	
+			justify-content: space-around;
+		}
+		
 
+		
+		#hamburger:hover + #navMobile{
+			display: flex;
 
+		}	
+		
 
+		.compText {
+			padding: 30px 2px;
+		}	
+		
+		.competencesImg {
+			width: 100px;
+			height: 100px;
+		}
+
+		#banniere {
+			object-fit: cover;
+			width: 600px;
+			height: 300px;
+		}
+		
+		.compText {
+			font-size: 25px
+		}	
+		
+		.bubble {
+			font-size : 16px;
+		}
+		
+		h3 {
+			font-size : 29px;;
+		}
+
+}
 
 
 
